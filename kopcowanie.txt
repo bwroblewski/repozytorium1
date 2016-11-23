@@ -1,0 +1,72 @@
+#include <cstdlib>
+#include <iostream>
+#include <ctime>
+
+using namespace std;
+
+void sortowanie_kopcowe( int * tablica, int rozmiar )
+{
+    int i, j;
+    for( int m = 2; m <= rozmiar; m++ )
+    {
+        i = m;
+        j = i / 2;
+        while(( tablica[ i ] > tablica[ j ] ) &&( j > 0 ) )
+        {
+            swap( tablica[ i ], tablica[ j ] );
+            i = j;
+            j = i / 2;
+        }
+    }
+    //kolejna czeœæ programu która bêdzie sortowa³a tablicê
+    int p;
+    for( int m = rozmiar; m > 1; m-- )
+    {
+        swap( tablica[ 1 ], tablica[ m ] ); // m-przechowuje koniec aktualnego kopca
+        i = 1;
+        j = 2;
+       
+        while( j < m )
+        {
+            if(( j + 1 < m ) &&( tablica[ j ] < tablica[ j + 1 ] ) )
+                 p = j + 1;
+            else
+                 p = j;
+           
+            if( tablica[ p ] <= tablica[ i ] )
+                 break;
+           
+            swap( tablica[ p ], tablica[ i ] );
+            i = p;
+            j = i + i;
+        }
+    }
+}
+
+
+int main( int argc, char * argv[] )
+{
+    int k = rand();
+    int n;
+    int * tab;
+    srand( time( 0 ) );
+    cout << "Podaj rozmiar tablicy: " << endl;
+    cin >> n;
+    tab = new int[ n ];
+    for( int i = 0; i < n; i++ )
+    {
+        tab[ i ] = rand() %( 101 );
+        cout << " " << tab[ i ];
+    }
+    sortowanie_kopcowe( tab, n - 1 );
+    cout << endl;
+    for( int i = 0; i < n; i++ )
+    {
+        cout << " " << tab[ i ];
+    }
+   
+   
+   
+    system( "PAUSE" );
+    return EXIT_SUCCESS;
+}

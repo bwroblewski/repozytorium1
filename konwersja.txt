@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+ 
+void konwersja(int liczba, int system)
+{
+if (liczba == 0) // jezeli liczba wynosi 0 to konczymy - mamy juz wynik
+return;
+int wynik = liczba%system; // obliczamy kolejna liczbe/litere do wyswietlenia
+liczba /= system; // zmniejszamy liczbe
+konwersja(liczba, system); // wywolujemy funkcje rekurencyjnie aby wyswietlac 'od konca'
+if (wynik < 10) // jezeli wynik mniejszy od 10 to wyswietlamy go
+cout << wynik;
+else // jezeli wiekszy to zamieniamy na odpowiedni kod ASCII
+{
+char litera = wynik + 55;
+cout << litera;
+}
+}
+ 
+int main()
+{
+int liczba, system;
+cout << "Podaj liczbe w systemie dziesietnym: ";
+cin >> liczba;
+cout << "Na jaki system zamienic liczbe <2,16>: ";
+cin >> system;
+cout << liczba << " po konwersji na system " << system << "-kowy wynosi ";
+konwersja(liczba, system); // wywolanie funkcji konwertujacej
+cout << endl;
+return 0;
+}
