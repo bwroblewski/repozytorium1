@@ -86,3 +86,4 @@ delete [] tablica;
  
 return 0;
 }
+scal
