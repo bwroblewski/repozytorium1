@@ -1,4 +1,4 @@
-//#include<iostream>
+﻿//#include<iostream>
 #include<cstdlib>
 using namespace std;
  
@@ -33,3 +33,4 @@ int main()
   system("pause");
   return 0;
 }
+babelkowe
