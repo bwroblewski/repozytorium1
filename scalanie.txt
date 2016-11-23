@@ -39,7 +39,7 @@ j++;
 k++;
 }
 }
- 
+ scalanie
 for (i = 0; i <= koniec-start; i++)
 tablica[start+i] = tab_pom[i]; 
  
