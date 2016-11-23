@@ -29,4 +29,4 @@ konwersja(liczba, system); // wywolanie funkcji konwertujacej
 cout << endl;
 return 0;
 }
-konwersja
+konwersjaa
